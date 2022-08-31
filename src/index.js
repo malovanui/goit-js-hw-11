@@ -6,7 +6,8 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const refs = {
     searchForm: document.querySelector('#search-form'),
     galleryList: document.querySelector('.gallery'),
-    loadMoreBtn: document.querySelector('#load-more')
+    loadMoreBtn: document.querySelector('#load-more'),
+    images: document.querySelectorAll('.gallery a')
 };
 
 
@@ -49,6 +50,8 @@ const createGalleryMarkup = (imagesData) => {
 
     refs.galleryList.insertAdjacentHTML('beforeend', markup);
     refs.loadMoreBtn.style.display = 'block';
+    lightbox.refresh();
+    
     
  };
 
@@ -111,4 +114,4 @@ const lightbox = new SimpleLightbox('.gallery a', {
 //----- Event Listeners
 refs.searchForm.addEventListener('submit', onSearchSubmit);
 refs.loadMoreBtn.addEventListener('click', onLoadMore);
-// refs.galleryList.addEventListener('click', lightbox);
+// window.addEventListener('scroll', doSmoothScroll);
